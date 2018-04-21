@@ -2,13 +2,9 @@
 
 set -ex;
 
-DB_USER=${1-root}
-DB_PASS=$2
-DB_NAME=${3-wpdev}
-PORT=8080
+. ./conf.ini
+
 WP_PATH=$(pwd)/www
-WP_TITLE='Welcome to the WordPress'
-WP_DESC='Hello World!'
 
 if [ -e "$WP_PATH/wp-config.php" ]; then
     open http://127.0.0.1:$PORT

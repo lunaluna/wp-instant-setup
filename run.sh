@@ -14,7 +14,8 @@ fi
 
 echo "path: www" > $(pwd)/wp-cli.yml
 
-wp core download --path=$WP_PATH --locale=en_US --version=trunk --force
+# wp core download --path=$WP_PATH --locale=en_US --version=trunk --force
+wp core download --path=$WP_PATH --locale=$LOCALE --version=latest --force
 
 if [ $DB_PASS ]; then
 wp config create \
@@ -24,9 +25,10 @@ wp config create \
 --dbuser="$DB_USER" \
 --dbpass="$DB_PASS" \
 --dbprefix=wp_ \
---locale=en_US \
+--locale=$LOCALE \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
+define( 'JETPACK_STAGING_MODE', true );
 define( 'WP_DEBUG', true );
 PHP
 else
@@ -36,9 +38,10 @@ wp config create \
 --dbname=$DB_NAME \
 --dbuser=$DB_USER \
 --dbprefix=wp_ \
---locale=en_US \
+--locale=$LOCALE \
 --extra-php <<PHP
 define( 'JETPACK_DEV_DEBUG', true );
+define( 'JETPACK_STAGING_MODE', true );
 define( 'WP_DEBUG', true );
 PHP
 fi

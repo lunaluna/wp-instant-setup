@@ -30,6 +30,7 @@ wp config create \
 define( 'JETPACK_DEV_DEBUG', true );
 define( 'JETPACK_STAGING_MODE', true );
 define( 'WP_DEBUG', true );
+define( 'WP_ENVIRONMENT_TYPE', development );
 PHP
 else
 wp config create \
@@ -43,6 +44,7 @@ wp config create \
 define( 'JETPACK_DEV_DEBUG', true );
 define( 'JETPACK_STAGING_MODE', true );
 define( 'WP_DEBUG', true );
+define( 'WP_ENVIRONMENT_TYPE', development );
 PHP
 fi
 

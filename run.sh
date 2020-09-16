@@ -2,6 +2,15 @@
 
 set -ex;
 
+count=`ps -ef | grep mysqld | grep -v grep | wc -l`
+#count=`ps cax | grep mysqld | wc -l`
+if [ $count = 0 ]; then
+    mysql.server start
+else
+    mysql.server stop
+    mysql.server start
+fi
+
 . ./conf.ini
 
 WP_PATH=$(pwd)/www

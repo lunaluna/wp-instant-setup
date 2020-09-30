@@ -11,11 +11,11 @@ SERVER_DIR=${PWD}
 
 
 # Create directories
-if [ ! -e ${SERVER_DIR}/plugins-list ]; then
-  mkdir ${SERVER_DIR}/plugins-list
+if [ ! -e ${SERVER_DIR}/list ]; then
+  mkdir ${SERVER_DIR}/list
 fi
 
-PLUGINS_DIR="$SERVER_DIR/plugins-list"
+PLUGINS_DIR="$SERVER_DIR/list"
 
 
 # list plugins log
@@ -23,13 +23,16 @@ PLUGINSLIST=$(cat << EOC
 ## Plugins List
 `wp plugin list --format=csv`
 
+## Theme List
+`wp theme list --format=csv`
+
 ## Number of plugins: `wp plugin list --format=count`
 EOC
 )
 
 # file output
-echo "$PLUGINSLIST" >> plugins-list.md
-cat plugins-list.md > ${PLUGINS_DIR}/plugins-list-${NOW}.md
-rm -f plugins-list.md
+echo "$PLUGINSLIST" >> list.md
+cat list.md > ${PLUGINS_DIR}/list-${NOW}.md
+rm -f list.md
 
 exit 0

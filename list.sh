@@ -15,7 +15,7 @@ if [ ! -e ${SERVER_DIR}/list ]; then
   mkdir ${SERVER_DIR}/list
 fi
 
-PLUGINS_DIR="$SERVER_DIR/list"
+LIST_DIR="$SERVER_DIR/list"
 
 
 # list plugins log
@@ -32,7 +32,7 @@ EOC
 
 # file output
 echo "$PLUGINSLIST" >> list.md
-cat list.md > ${PLUGINS_DIR}/list-${NOW}.md
+cat list.md > ${LIST_DIR}/list-${NOW}.md
 rm -f list.md
 
 exit 0

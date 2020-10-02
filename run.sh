@@ -29,7 +29,7 @@ wp core download --path=$WP_PATH --locale=$LOCALE --version=latest --force
 if [ $DB_PASS ]; then
 wp config create \
 --skip-check \
---dbhost=localhost \
+--dbhost=127.0.0.1 \
 --dbname="$DB_NAME" \
 --dbuser="$DB_USER" \
 --dbpass="$DB_PASS" \
@@ -43,7 +43,7 @@ PHP
 else
 wp config create \
 --skip-check \
---dbhost=localhost \
+--dbhost=127.0.0.1 \
 --dbname=$DB_NAME \
 --dbuser=$DB_USER \
 --dbprefix=wp_ \
